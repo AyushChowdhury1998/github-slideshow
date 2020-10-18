@@ -1,0 +1,1509 @@
+
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+import javax.swing.JPasswordField;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+ 
+class hd implements ActionListener
+{
+	JFrame f;
+	JLabel l1,l2,l3,l4;
+	JTextField tf1,tf2;
+	JButton b1;
+	JPasswordField ps;
+	                                      String uid[]= {"AYUSH","def456","ghi789"};//USER-ID
+	                                      String upw[]= {"123abc","456def","789ghi"};//USER-PASSWORD
+	
+	
+	hd()
+	{
+		f=new JFrame();
+		f.setLayout(null);
+		f.setTitle("WELLCOM TO HOTEL GR LOGIN PAGE :");
+		f.setBounds(500,100,500,300);
+		
+		l1=new JLabel("USER-ID         :");
+		l1.setBounds(10,70,120,40);
+		tf1=new JTextField();
+		tf1.setBounds(120,80,100,30);
+	
+		l2=new JLabel("PASSWORD :");
+		l2.setBounds(10,120,100,40);
+		ps=new JPasswordField();
+		ps.setEchoChar('*');
+		ps.setBounds(120,120,100,30);
+		
+		b1=new JButton("LOGIN");
+		b1.setBounds(180,180,80,30);
+		b1.addActionListener(this);
+		
+		l3=new JLabel("INCORRECT USER-ID OR PASSWORD !!");
+		l3.setBounds(130,20,250,20);
+		l3.setVisible(false);
+		
+		f.add(l1);
+		f.add(tf1);
+		f.add(l2);
+		f.add(l3);
+		f.add(b1);
+		f.add(ps);
+		f.setVisible(true);
+		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+	
+	public void actionPerformed(ActionEvent ae)
+	{
+		int i=0,f=0;
+		if(ae.getActionCommand().equalsIgnoreCase("LOGIN"))
+		{
+			
+			String id="";
+			String pw =" ";
+			id=tf1.getText();
+			pw=ps.getText();
+			 
+			for(i=0;i<uid.length;i++)
+			{
+			if(id.equalsIgnoreCase(uid[i]) && pw.equalsIgnoreCase(upw[i]))
+			{
+			f=1;
+			break;
+			}
+			}
+		if(f==1)
+		{
+			System.out.println(id);
+			System.out.println(pw);
+			
+			list1 ob1=new list1(tf1.getText());
+		}
+		else
+		{
+			l3.setVisible(true);
+		}
+		}
+	    }
+		
+	
+public static void main(String args[])
+{
+	hd ob=new hd();
+}
+}
+
+class list1 implements ActionListener
+{
+	JFrame f;
+	JLabel l1,l2;
+	JButton b1,b2,b3,b4,b5;
+	String id="";
+	list1(String id)
+	{
+		f=new JFrame();
+		f.setLayout(null);
+		f.setTitle("WELLCOM TO HOTEL ");
+		f.setBounds(450,100,600,500);
+	   
+		l1=new JLabel("USER-ID :");
+		l1.setBounds(100,20,100,30);
+		
+		l2=new JLabel(id);
+		l2.setBounds(160,20,100,30);
+		l2.setVisible(true);
+		
+	   b1=new JButton("TARIFF-LIST");
+	   b1.setBounds(70,100,150,40);
+	   b1.addActionListener(this);
+	   
+	   b2=new JButton("OCCUPANCY-LIST");
+	   b2.setBounds(300,100,150,40);
+	   b2.addActionListener(this);
+	   
+	   b3=new JButton("BOOKING-PAGE");
+	   b3.setBounds(70,250,150,40);
+	   b3.addActionListener(this);	
+	   
+	   b4=new JButton("BILL-GENERATE");
+	   b4.setBounds(300,250,150,40);
+	   b4.addActionListener(this);
+	   
+	   b5=new JButton("EXIT");
+	   b5.setBounds(200,350,80,40);
+	   b5.addActionListener(this);
+	    f.add(l1); 
+	    f.add(l2);
+	    f.add(b1);
+	    f.add(b2);
+	    f.add(b3);
+	    f.add(b4);
+	    f.add(b5);
+	    f.setVisible(true);
+	    f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+	
+public void actionPerformed(ActionEvent ae)
+{
+	if(ae.getActionCommand().equalsIgnoreCase("TARIFF-LIST"))
+	{
+		tariff ob2=new tariff();
+	}
+	else if(ae.getActionCommand().equalsIgnoreCase("OCCUPANCY-LIST"))
+   {
+		 occupancy ob3=new occupancy ();
+   }
+	else if(ae.getActionCommand().equalsIgnoreCase("BOOKING-PAGE"))
+	{
+		booking1 ob4=new booking1();
+	}
+	
+	else if (ae.getActionCommand().equalsIgnoreCase("BILL-GENERATE"))
+	{
+		bill ob5=new bill();
+	}
+if(ae.getActionCommand().equalsIgnoreCase("EXIT"))
+{
+	login ob6=new login();
+}
+}
+}
+
+class tariff 
+{
+	JFrame f;
+	JLabel l1,l2,l3,l4,l5,l6,l7,l8,l9,l10,l11,l12,l13,l14,l15,l16,l17,l18,l19,l20,l21,l22,l23,l24,l25,l26,l27,l28,l29,l30,l31,l32,l33,l34,l35,l36,l37,l38,l39,l40,l41,l42,l43,l45;
+	JButton b1,b2,b3,b4,b5,b6,b7,b8,b9,b10;
+	tariff()
+	{
+		
+		f=new JFrame();
+		f.setLayout(null);
+		f.setTitle("TARIFF LIST FOR THE YEAR 2020-21");
+		f.setBounds(300,0,1000,700);
+		
+		b1=new JButton("NORMAL-ROOM");
+		b1.setBounds(10,50,150,30);
+		
+        l1=new JLabel("(Gst-18% && Service Tax-Rs.150.00)");
+        l1.setBounds(10,80,250,30);
+        l1.setVisible(true);
+       
+        l2=new JLabel("Non-A.C Rooms:");
+        l2.setBounds(10,120,100,30);
+        l2.setVisible(true);
+        l36=new JLabel("-----------------------------");
+		l36.setBounds(10,130,150,30);
+        
+		l3=new JLabel("SEA-FACING     : Rs-1150.00");
+        l3.setBounds(10,140,200,30);
+        l3.setVisible(true);
+       
+        l4=new JLabel("SIDE SEA-FACING :Rs-950.00");
+        l4.setBounds(10,160,200,30);
+        l4.setVisible(true);
+        
+        l5=new JLabel("BACK SIDE       : Rs-800.00");
+        l5.setBounds(10,180,200,30);
+        l5.setVisible(true);
+        
+        l6=new JLabel("A.C ROOMs :");
+        l6.setBounds(10,210,200,30);
+        l6.setVisible(true);
+        l37=new JLabel("-----------------------------");
+		l37.setBounds(10,220,150,30);
+        
+		l7=new JLabel("SEA-FACING :     Rs-1800.00");
+        l7.setBounds(10,230,200,30);
+        l7.setVisible(true);
+        
+        l8=new JLabel("SIDE SEA-FACING :Rs-1500.00");
+        l8.setBounds(10,260,200,30);
+        l8.setVisible(true);
+        
+        l9=new JLabel("BACK SIDE ROOM : Rs-1350.00");
+        l9.setBounds(10,290,200,30);
+        l9.setVisible(true);
+        
+		l10=new JLabel("*FOR TEA & BREAKFAST: Rs-75/Guest.");
+		l10.setBounds(10,310,220,30);
+		l10.setVisible(true);
+        
+		b2=new JButton("DELUX-ROOM");
+		b2.setBounds(300,50,150,30);
+		
+		l11=new JLabel("(Gst-18% && Service Tax-Rs.300.00)");
+        l11.setBounds(280,80,250,30);
+        l11.setVisible(true);
+        
+        l12=new JLabel("NON-A.C ROOM :");
+        l12.setBounds(280,120,200,30);
+        l12.setVisible(true);
+        l38=new JLabel("-----------------------------");
+		l38.setBounds(280,130,150,30);
+		
+        l13=new JLabel("SEA FACING ROOM : Rs-2800.00");
+        l13.setBounds(280,140,200,30);
+        l13.setVisible(true);
+        
+        l14=new JLabel("SIDE SEA FACING ROOM :Rs-2500.00");
+        l14.setBounds(280,160,250,30);
+        l14.setVisible(true);
+        
+        l15=new JLabel("BACK SIDE ROOM : Rs-2200.00");
+        l15.setBounds(280,180,200,30);
+        l15.setVisible(true);
+        
+        l16=new JLabel("A.C ROOMS :");
+        l16.setBounds(280,210,200,30);
+        l16.setVisible(true);
+        l39=new JLabel("-----------------------------");
+		l39.setBounds(280,220,150,30);
+		
+        l17=new JLabel("SEA FACING ROOM : Rs-4500.00");
+        l17.setBounds(280,230,200,30);
+        l17.setVisible(true);
+        
+        l18=new JLabel("SIDE SEA FACING ROOM :Rs-3800.00");
+        l18.setBounds(280,260,250,30);
+        l18.setVisible(true);
+        
+        l19=new JLabel("BACK SIDE ROOM : Rs-3040.00");
+        l19.setBounds(280,290,200,30);
+        l19.setVisible(true);
+        
+        l20=new JLabel("*TEA & BREAKFAST COMPLEMENTARY.");
+        l20.setBounds(280,310,250,30);
+        l20.setVisible(true);
+        
+        
+        
+		b3=new JButton("SUPPER DELUX-ROOM");
+		b3.setBounds(600,50,200,30);
+		l21=new JLabel("(Gst-24% && Service Tax-Rs.450.00)");
+        l21.setBounds(580,80,250,30);
+        l21.setVisible(true);
+        
+        l22=new JLabel("EXECUTIVE ROOMS :");
+		l22.setBounds(580,120,200,30);
+		l22.setVisible(true);
+		l40=new JLabel("-----------------------------");
+		l40.setBounds(580,130,150,30);
+		
+		l23=new JLabel("SEA FACING ROOM  :Rs-7500.00 ");
+		l23.setBounds(580,140,250,30);
+		l23.setVisible(true);
+		
+		l24=new JLabel("SIDE SEA FACING ROOM : Rs-6600.00");
+		l24.setBounds(580,160,250,30);
+		l24.setVisible(true);
+		
+		
+		l25=new JLabel("SUIT ROOM :");
+		l25.setBounds(580,210,200,30);
+		l25.setVisible(true);
+		l41=new JLabel("-----------------------------");
+		l41.setBounds(580,220,150,30);
+		
+		l26=new JLabel("SEA FACING ROOM : Rs-9000.00");
+		l26.setBounds(580,230,250,30);
+		l26.setVisible(true);
+		
+		l27=new JLabel("SIDE SEA FACING ROOM : Rs-8200.00");
+		l27.setBounds(580,260,250,30);
+		l27.setVisible(true);
+		
+		
+		l28=new JLabel("*WELLCOM-DRINK & TEA & BREAKFAST COMPLEMANTERY.");
+		l28.setBounds(560,310,340,30);
+		l28.setVisible(true);
+		
+		
+		b4=new JButton("DORMATORY-ROOM");
+		b4.setBounds(10,420,180,30);
+		
+		l29=new JLabel("(Gst-18% && Service Tax-Rs.600.00)");
+        l29.setBounds(10,450,250,30);
+        l29.setVisible(true);
+
+        l30=new JLabel("NON-A.C ROOM :");
+		l30.setBounds(10,480,200,30);
+		l30.setVisible(true);
+		l42=new JLabel("-----------------------------");
+		l42.setBounds(10,490,150,30);
+		
+		l31=new JLabel("BACK SIDE ROOM :Rs-3000.00");
+		l31.setBounds(10,500,200,30);
+		l31.setVisible(true);
+		
+		l32=new JLabel("A.C ROOM :");
+		l32.setBounds(10,530,200,30);
+		l32.setVisible(true);
+		l43=new JLabel("-----------------------------");
+		l43.setBounds(10,540,150,30);
+		
+		l33=new JLabel("SIDE SEA FACING ROOM:Rs-7800.00");
+		l33.setBounds(10,550,250,30);
+		l33.setVisible(true);
+		
+		
+		b5=new JButton("BANQUATE HALL");
+		b5.setBounds(320,420,180,30);
+		
+		l34=new JLabel("(Gst-18% && Service Tax-Rs.750.00)");
+        l34.setBounds(320,480,250,30);
+        l34.setVisible(true);
+	
+       f.add(b1);
+       f.add(b2);
+       f.add(b3);
+       f.add(b4);
+       f.add(b5);
+       f.add(l1);
+       f.add(l2);
+       f.add(l3);
+       f.add(l4);
+       f.add(l5);
+       f.add(l6);
+       f.add(l7);
+       f.add(l8);
+       f.add(l9);
+       f.add(l10);
+       f.add(l11);
+       f.add(l12);
+       f.add(l13);
+       f.add(l14);
+       f.add(l15);
+       f.add(l16);
+       f.add(l17);
+       f.add(l18);
+       f.add(l19);
+       f.add(l20);
+       f.add(l21);
+       f.add(l22);
+       f.add(l23);
+       f.add(l24);
+       f.add(l25);
+       f.add(l26);
+       f.add(l27);
+       f.add(l28);
+       f.add(l29);
+       f.add(l30);
+       f.add(l31);
+       f.add(l32);
+       f.add(l33);
+       f.add(l34);
+       f.add(l36);
+       f.add(l37);
+       f.add(l38);
+       f.add(l39);
+       f.add(l40);
+       f.add(l41);
+       f.add(l42);
+        f.setVisible(true);
+       f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+
+	public  void main(String args[])
+{
+	//tf ob2=new tf();
+}
+}
+
+class occupancy
+{
+	JFrame f;
+	JLabel l,l1,l2,l3,l4,l5,l6,l7,l8,l9,l10,l11,l12,l13,l14,l15,l16,l17,l18,l19,l20,l21,l22,l23,l24,l25;
+	    JButton b,b1,b2,b3,b4,b5,b6,b7,b8,b9,b10,b11,b12,b13,b14,b15,b16,b17,b18,b19,b20,b21,b22,b23,b24,b25;	
+	occupancy()
+	{
+f=new JFrame();
+f.setLayout(null);
+f.setTitle("OCCUPANCY");
+f.setBounds(0,00,1500,1500);
+
+l1=new JLabel("GROUND-FLOOR :");
+l1.setBounds(20,20,150,60);
+l2=new JLabel("RECEPTION");
+l2.setBounds(220,20,150,40);
+b1=new JButton("402");
+b1.setBounds(180,50,150,40);
+l3=new JLabel("RESTAURANT");
+l3.setBounds(380,20,150,40);
+b2=new JButton("403");
+b2.setBounds(350,50,150,40);
+
+//First floor
+l5=new JLabel("FIRST-FLOOR  :");
+l5.setBounds(1000,10,100,30);
+l6=new JLabel("NORMAL-ROOM   :- 101 | 102 | 103 | 104");
+l6.setBounds(1050,50,250,30);
+l7=new JLabel("DELUX-ROOM    :- 105");
+l7.setBounds(1050,80,250,30);
+l8=new JLabel("DORMATORY-ROOM:- 106");
+l8.setBounds(1050,110,250,30);
+//second floor
+l9=new JLabel("SECOND-FLOOR :");
+l9.setBounds(1000,160,250,30);
+l10=new JLabel("NORMAL-ROOM  :- 201 | 202");
+l10.setBounds(1050,200,250,30);
+l11=new JLabel("DELUX-ROOM   :- 203 | 204");
+l11.setBounds(1050,230,250,30);
+l12=new JLabel("EXECUTIVE-ROOM :- 205");
+l12.setBounds(1050,260,250,30);
+l13=new JLabel("SUIT-ROOM      :- 206");
+l13.setBounds(1050,290,250,30);
+//third floor
+l14=new JLabel("THIRD-FLOOR :");
+l14.setBounds(1000,330,250,30);
+l15=new JLabel("DORMATORY-ROOM :- 301");
+l15.setBounds(1050,370,250,30);
+l16=new JLabel("DELUX-ROOM     :- 302 | 303 | 304");
+l16.setBounds(1050,400,250,30);
+l17=new JLabel("EXECUTIVE-ROOM :-  305");
+l17.setBounds(1050,430,250,30);
+l18=new JLabel("SUIT-ROOM      :-  306");
+l18.setBounds(1050,460,250,30);
+//FOURTH FLOOR
+l19=new JLabel("FOURTH-FLOOR :");
+l19.setBounds(1000,500,250,30);
+l20=new JLabel("BANQUIET-HALL :- 403");
+l20.setBounds(1050,530,250,30);
+
+
+
+
+l4=new JLabel("FIRST-FLOOR  :");
+l4.setBounds(20,135,150,60);
+b3=new JButton("101");
+b3.setBounds(180,130,80,40);
+b4=new JButton("102");
+b4.setBounds(260,130,80,40);
+b5=new JButton("103");
+b5.setBounds(340,130,80,40);
+b6=new JButton("104");
+b6.setBounds(180,170,80,40);
+b7=new JButton("105");
+b7.setBounds(260,170,80,40);
+b8=new JButton("106");
+b8.setBounds(340,170,80,40);
+
+l21=new JLabel("SECOND-FLOOR :");
+l21.setBounds(20,260,150,60);
+b9=new JButton("201");
+b9.setBounds(180,250,80,40);
+b10=new JButton("202");
+b10.setBounds(260,250,80,40);
+b11=new JButton("203");
+b11.setBounds(340,250,80,40);
+b12=new JButton("204");
+b12.setBounds(180,290,80,40);
+b13=new JButton("205");
+b13.setBounds(260,290,80,40);
+b14=new JButton("206");
+b14.setBounds(340,290,80,40);
+
+l22=new JLabel("THIRD-FLOOR  :");
+l22.setBounds(20,360,150,60);
+b15=new JButton("301");
+b15.setBounds(180,350,80,40);
+b16=new JButton("302");
+b16.setBounds(260,350,80,40);
+b17=new JButton("303");
+b17.setBounds(340,350,80,40);
+b18=new JButton("304");
+b18.setBounds(180,390,80,40);
+b19=new JButton("305");
+b19.setBounds(260,390,80,40);
+b20=new JButton("306");
+b20.setBounds(340,390,80,40);
+
+l23=new JLabel("FOURTH-FLOOR :");
+l23.setBounds(20,450,150,60);
+b21=new JButton("403");
+b21.setBounds(180,460,80,40);
+
+
+f.add(l1);
+f.add(l2);
+f.add(l3);
+f.add(l4);
+f.add(b1);
+f.add(b2);
+f.add(b3);
+f.add(b4);
+f.add(b5);
+f.add(b6);
+f.add(b7);
+f.add(b8);
+f.add(l5);
+f.add(l6);
+f.add(l7);
+f.add(l8);
+f.add(l9);
+f.add(l10);
+f.add(l11);
+f.add(l12);
+f.add(l13);
+f.add(l14);
+f.add(l15);
+f.add(l16);
+f.add(l17);
+f.add(l18);
+f.add(l19);
+f.add(l20);
+f.add(l21);
+f.add(l22);
+f.add(l23);
+f.add(b9);
+f.add(b10);
+f.add(b11);
+f.add(b12);
+f.add(b13);
+f.add(b14);
+f.add(b15);
+f.add(b16);
+f.add(b17);
+f.add(b18);
+f.add(b19);
+f.add(b20);
+f.add(b21);
+f.setVisible(true);
+f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+public static void main(String args[])
+{
+	//occupancy ob3=new occupancy();
+}
+}
+
+class booking1 implements ActionListener
+{
+	JFrame f;
+	JLabel  rn,gl,sl,dl, l,ln,l1,l2,l3,l4,l5,l6,l7,l8,l9,l10,l11,l12,l13,l14,l15,l16,l17,l18,l19,l20,l21,l22,l23,l24,l25,l26,l27,l28,l29,l30;
+	JTextField  rnf,gtf,sf, tf1,tf2,tf3,tf4,tf5,tf6,tf7,tf8,tf9,tf10,tf11,tf12,tf13,tf14,tf15,tf16,tf17,tf18,tf19,tf20,tf21,tf22,tf23,tf24,tf25,tf26,tf27,tf28,tf29,tf30;
+	JButton b,b1,b2,b3,b4,b5;
+	float r,st,g,nb,gamt;
+	int d1,d2,m1,m2,y1,y2,td,tr,sev;
+	float gp;
+	booking1()
+	{
+		f=new JFrame();
+		f.setLayout(null);
+		f.setTitle(" GROUP OF HOTEL's");
+		f.setBounds(250,100,900,500);
+		
+		l=new JLabel(" GROUP's OF HOTEL, INDIA.");
+		l.setBounds(250,5,300,30);
+		l.setVisible(true);
+		
+		ln=new JLabel("_______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________");
+		ln.setBounds(0,8,1200,30);
+		ln.setVisible(true);
+		
+		dl=new JLabel("GUEST DETAILS :");
+		dl.setBounds(400,30,150,30);
+		
+		l1=new JLabel("CUSTOMER NAME :");
+		l1.setBounds(10,80,150,30);
+		tf1=new JTextField();
+		tf1.setBounds(200,80,150,30);
+		
+		
+		l2=new JLabel("ADHAR-NUMBER :");
+		l2.setBounds(10,120,150,30);
+		tf2=new JTextField();
+		tf2.setBounds(200,120,150,30);
+		
+		
+		l3=new JLabel("CHECK-IN-DATE :");
+		l3.setBounds(10,180,150,30);
+		//days
+		l4=new JLabel("D");
+		l4.setBounds(120,155,30,30);
+		l4.setVisible(true);
+		tf3=new JTextField();
+		tf3.setBounds(120,180,30,30);
+		
+		l5=new JLabel("D");
+		l5.setBounds(150,155,30,30);
+		l5.setVisible(true);
+		tf4=new JTextField();
+		tf4.setBounds(150,180,30,30);
+		
+		//months
+		l6=new JLabel("M");
+		l6.setBounds(200,155,30,30);
+		l6.setVisible(true);
+		tf5=new JTextField();
+		tf5.setBounds(200,180,30,30);
+		
+		l7=new JLabel("M");
+		l7.setBounds(230,155,30,30);
+		l7.setVisible(true);
+		tf6=new JTextField();
+		tf6.setBounds(230,180,30,30);
+		
+		//year
+		l8=new JLabel("Y");
+		l8.setBounds(280,155,30,30);
+		l8.setVisible(true);
+		tf7=new JTextField();
+		tf7.setBounds(280,180,30,30);
+		
+		l9=new JLabel("Y");
+		l9.setBounds(310,155,30,30);
+		l9.setVisible(true);
+		tf8=new JTextField();
+		tf8.setBounds(310,180,30,30);
+		
+		l10=new JLabel("Y");
+		l10.setBounds(340,155,30,30);
+		l10.setVisible(true);
+		tf9=new JTextField();
+		tf9.setBounds(340,180,30,30);
+		
+		l11=new JLabel("Y");
+		l11.setBounds(370,155,30,30);
+		l11.setVisible(true);
+		tf10=new JTextField();
+		tf10.setBounds(370,180,30,30);
+		
+		
+		
+		l12=new JLabel("CHECK-OUT-DATE :");
+		l12.setBounds(10,250,150,30);
+		
+		//Day2
+		l13=new JLabel("D");
+		l13.setBounds(120,228,30,30);
+		l13.setVisible(true);
+		tf11=new JTextField();
+		tf11.setBounds(120,250,30,30);
+		
+		l14=new JLabel("D");
+		l14.setBounds(150,228,30,30);
+		l14.setVisible(true);
+		tf12=new JTextField();
+		tf12.setBounds(150,250,30,30);
+		
+		//Months2
+		l15=new JLabel("M");
+		l15.setBounds(200,228,30,30);
+		l15.setVisible(true);
+		tf13=new JTextField();
+		tf13.setBounds(200,250,30,30);
+		
+		l16=new JLabel("M");
+		l16.setBounds(230,228,30,30);
+		l16.setVisible(true);
+		tf14=new JTextField();
+		tf14.setBounds(230,250,30,30);
+		
+		//Year2
+		l17=new JLabel("Y");
+		l17.setBounds(280,228,30,30);
+		l17.setVisible(true);
+		tf15=new JTextField();
+		tf15.setBounds(280,250,30,30);
+		
+		l18=new JLabel("Y");
+		l18.setBounds(310,228,30,30);
+		l18.setVisible(true);
+		tf16=new JTextField();
+		tf16.setBounds(310,250,30,30);
+		
+		l19=new JLabel("Y");
+		l19.setBounds(340,228,30,30);
+		l19.setVisible(true);
+		tf17=new JTextField();
+		tf17.setBounds(340,250,30,30);
+		
+		l20=new JLabel("Y");
+		l20.setBounds(370,228,30,30);
+		l20.setVisible(true);
+		tf18=new JTextField();
+		tf18.setBounds(370,250,30,30);
+		
+		
+		l21=new JLabel("NUMBER OF ROOM's :");
+		l21.setBounds(550,100,150,30);
+		tf19=new JTextField();
+		tf19.setBounds(700,100,100,30);
+		
+		
+		l22=new JLabel("NUMBER OF GUESTS :");
+		l22.setBounds(550,150,150,30);
+		tf20=new JTextField();
+		tf20.setBounds(700,150,100,30);
+		
+		rn=new JLabel("ROOM-NUMBER :");
+		rn.setBounds(550,200,100,30);
+		rnf=new JTextField();
+		rnf.setBounds(700,200,100,30);
+		
+		l23=new JLabel("RATE-PER-ROOM :");
+		l23.setBounds(550,250,120,30);
+		tf21=new JTextField();
+		tf21.setBounds(700,250,100,30);
+		
+		b=new JButton("BOOK");
+		b.setBounds(350,400,100,30);
+		b.addActionListener(this);
+		
+		gl=new JLabel("GST % :");
+		gl.setBounds(10,300,80,30);
+		gtf=new JTextField();
+		gtf.setBounds(130,300,60,30);
+		
+		sl=new JLabel("SERVICE-TAX :");
+		sl.setBounds(10,350,100,30);
+		sf=new JTextField();
+		sf.setBounds(110,350,100,30);
+		
+		f.add(l);
+		f.add(dl);
+		f.add(ln);
+		f.add(l1);
+		f.add(tf1);
+		f.add(l2);
+		f.add(tf2);
+		f.add(l3);
+		f.add(tf3);
+		f.add(l4);
+		f.add(tf4);
+		f.add(l5);
+		f.add(tf5);
+		f.add(l6);
+		f.add(tf6);
+		f.add(l7);
+		f.add(tf7);
+		f.add(l8);
+		f.add(tf8);
+		f.add(tf9);
+		f.add(tf10);
+		f.add(tf11);
+		f.add(tf12);
+		f.add(tf13);
+		f.add(tf14);
+		f.add(tf15);
+		f.add(tf16);
+		f.add(tf17);
+		f.add(tf18);
+		f.add(tf19);
+		f.add(tf20);
+		f.add(tf21);
+		
+		f.add(l9);
+		f.add(l10);
+		f.add(l11);
+		f.add(l12);
+		f.add(l13);
+		f.add(l14);
+		f.add(l15);
+		f.add(l16);
+		f.add(l17);
+		f.add(l18);
+		f.add(l19);
+		f.add(l20);
+		f.add(l21);
+		f.add(l22);
+		f.add(l23);
+		//f.add(l24);
+		//f.add(l25);
+		//f.add(l26);
+		
+		f.add(gl);
+		f.add(gtf);
+		f.add(rn);
+		f.add(rnf);
+		f.add(sl);
+		f.add(sf);
+		f.add(b);
+		
+		           f.setVisible(true);
+		           f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+	public void actionPerformed(ActionEvent ae)
+	{
+		
+	}
+	public static void main(String args[])
+	{
+	//booking ob=new booking();	
+	}
+	}
+		
+
+
+
+class bill implements ActionListener
+{
+	JFrame f;
+	JLabel  rn,gl,sl,dl, l,ln,l1,l2,l3,l4,l5,l6,l7,l8,l9,l10,l11,l12,l13,l14,l15,l16,l17,l18,l19,l20,l21,l22,l23,l24,l25,l26,l27,l28,l29,l30;
+	JTextField  rnf,gtf,sf, tf1,tf2,tf3,tf4,tf5,tf6,tf7,tf8,tf9,tf10,tf11,tf12,tf13,tf14,tf15,tf16,tf17,tf18,tf19,tf20,tf21,tf22,tf23,tf24,tf25,tf26,tf27,tf28,tf29,tf30;
+	JButton b,pb;
+	float r,st,g,nb,gamt;
+	int d1,d2,m1,m2,y1,y2,td,tr,sev;
+	float gp;
+	bill()
+	{
+		f=new JFrame();
+		f.setLayout(null);
+		f.setTitle(" GROUP OF HOTEL's");
+		f.setBounds(0,0,900,700);
+		
+		l=new JLabel(" GROUP's OF HOTEL, INDIA.");
+		l.setBounds(250,5,300,30);
+		l.setVisible(true);
+		
+		ln=new JLabel("_______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________");
+		ln.setBounds(0,8,1200,30);
+		ln.setVisible(true);
+		
+		dl=new JLabel("GUEST DETAILS :");
+		dl.setBounds(400,30,150,30);
+		
+		l1=new JLabel("CUSTOMER NAME :");
+		l1.setBounds(10,80,150,30);
+		tf1=new JTextField();
+		tf1.setBounds(200,80,150,30);
+		
+		
+		l2=new JLabel("ADHAR-NUMBER :");
+		l2.setBounds(10,120,150,30);
+		tf2=new JTextField();
+		tf2.setBounds(200,120,150,30);
+		
+		
+		l3=new JLabel("CHECK-IN-DATE :");
+		l3.setBounds(10,180,150,30);
+		//days
+		l4=new JLabel("D");
+		l4.setBounds(120,155,30,30);
+		l4.setVisible(true);
+		tf3=new JTextField();
+		tf3.setBounds(120,180,30,30);
+		
+		l5=new JLabel("D");
+		l5.setBounds(150,155,30,30);
+		l5.setVisible(true);
+		tf4=new JTextField();
+		tf4.setBounds(150,180,30,30);
+		
+		//months
+		l6=new JLabel("M");
+		l6.setBounds(200,155,30,30);
+		l6.setVisible(true);
+		tf5=new JTextField();
+		tf5.setBounds(200,180,30,30);
+		
+		l7=new JLabel("M");
+		l7.setBounds(230,155,30,30);
+		l7.setVisible(true);
+		tf6=new JTextField();
+		tf6.setBounds(230,180,30,30);
+		
+		//year
+		l8=new JLabel("Y");
+		l8.setBounds(280,155,30,30);
+		l8.setVisible(true);
+		tf7=new JTextField();
+		tf7.setBounds(280,180,30,30);
+		
+		l9=new JLabel("Y");
+		l9.setBounds(310,155,30,30);
+		l9.setVisible(true);
+		tf8=new JTextField();
+		tf8.setBounds(310,180,30,30);
+		
+		l10=new JLabel("Y");
+		l10.setBounds(340,155,30,30);
+		l10.setVisible(true);
+		tf9=new JTextField();
+		tf9.setBounds(340,180,30,30);
+		
+		l11=new JLabel("Y");
+		l11.setBounds(370,155,30,30);
+		l11.setVisible(true);
+		tf10=new JTextField();
+		tf10.setBounds(370,180,30,30);
+		
+		
+		
+		l12=new JLabel("CHECK-OUT-DATE :");
+		l12.setBounds(10,250,150,30);
+		
+		//Day2
+		l13=new JLabel("D");
+		l13.setBounds(120,228,30,30);
+		l13.setVisible(true);
+		tf11=new JTextField();
+		tf11.setBounds(120,250,30,30);
+		
+		l14=new JLabel("D");
+		l14.setBounds(150,228,30,30);
+		l14.setVisible(true);
+		tf12=new JTextField();
+		tf12.setBounds(150,250,30,30);
+		
+		//Months2
+		l15=new JLabel("M");
+		l15.setBounds(200,228,30,30);
+		l15.setVisible(true);
+		tf13=new JTextField();
+		tf13.setBounds(200,250,30,30);
+		
+		l16=new JLabel("M");
+		l16.setBounds(230,228,30,30);
+		l16.setVisible(true);
+		tf14=new JTextField();
+		tf14.setBounds(230,250,30,30);
+		
+		//Year2
+		l17=new JLabel("Y");
+		l17.setBounds(280,228,30,30);
+		l17.setVisible(true);
+		tf15=new JTextField();
+		tf15.setBounds(280,250,30,30);
+		
+		l18=new JLabel("Y");
+		l18.setBounds(310,228,30,30);
+		l18.setVisible(true);
+		tf16=new JTextField();
+		tf16.setBounds(310,250,30,30);
+		
+		l19=new JLabel("Y");
+		l19.setBounds(340,228,30,30);
+		l19.setVisible(true);
+		tf17=new JTextField();
+		tf17.setBounds(340,250,30,30);
+		
+		l20=new JLabel("Y");
+		l20.setBounds(370,228,30,30);
+		l20.setVisible(true);
+		tf18=new JTextField();
+		tf18.setBounds(370,250,30,30);
+		
+		
+		l21=new JLabel("NUMBER OF ROOM's :");
+		l21.setBounds(550,100,150,30);
+		tf19=new JTextField();
+		tf19.setBounds(700,100,100,30);
+		
+		
+		l22=new JLabel("NUMBER OF GUESTS :");
+		l22.setBounds(550,150,150,30);
+		tf20=new JTextField();
+		tf20.setBounds(700,150,100,30);
+		
+		rn=new JLabel("ROOM-NUMBER :");
+		rn.setBounds(550,200,100,30);
+		rnf=new JTextField();
+		rnf.setBounds(700,200,100,30);
+		
+		l23=new JLabel("RATE-PER-ROOM :");
+		l23.setBounds(550,250,120,30);
+		tf21=new JTextField();
+		tf21.setBounds(700,250,100,30);
+		
+		b=new JButton("VIEW-BILL :");
+		b.setBounds(350,400,100,30);
+		b.addActionListener(this);
+		
+		l24=new JLabel("GST-AMOUNT :");
+		l24.setBounds(50,450,100,30);
+		tf22=new JTextField();
+		tf22.setBounds(200,450,100,30);
+
+		l25=new JLabel("NET-BILL :");
+		l25.setBounds(50,500,100,30);
+		tf23=new JTextField();
+		tf23.setBounds(200,500,100,30);
+		
+		l26=new JLabel("TOTAL STAY DAYs : ");
+		l26.setBounds(400,450,150,30);
+		tf24=new JTextField();
+		tf24.setBounds(550,450,100,30);
+		
+		gl=new JLabel("GST % :");
+		gl.setBounds(10,300,80,30);
+		gtf=new JTextField();
+		gtf.setBounds(130,300,60,30);
+		
+		sl=new JLabel("SERVICE-TAX :");
+		sl.setBounds(10,350,100,30);
+		sf=new JTextField();
+		sf.setBounds(110,350,100,30);
+		
+		pb=new JButton("PRINT-BILL :");
+		pb.setBounds(350,580,150,30);
+		pb.addActionListener(this);
+		
+		f.add(pb);
+		f.add(l);
+		f.add(dl);
+		f.add(ln);
+		f.add(l1);
+		f.add(tf1);
+		f.add(l2);
+		f.add(tf2);
+		f.add(l3);
+		f.add(tf3);
+		f.add(l4);
+		f.add(tf4);
+		f.add(l5);
+		f.add(tf5);
+		f.add(l6);
+		f.add(tf6);
+		f.add(l7);
+		f.add(tf7);
+		f.add(l8);
+		f.add(tf8);
+		f.add(tf9);
+		f.add(tf10);
+		f.add(tf11);
+		f.add(tf12);
+		f.add(tf13);
+		f.add(tf14);
+		f.add(tf15);
+		f.add(tf16);
+		f.add(tf17);
+		f.add(tf18);
+		f.add(tf19);
+		f.add(tf20);
+		f.add(tf21);
+		f.add(tf22);
+		f.add(tf23);
+		f.add(tf24);
+		f.add(l9);
+		f.add(l10);
+		f.add(l11);
+		f.add(l12);
+		f.add(l13);
+		f.add(l14);
+		f.add(l15);
+		f.add(l16);
+		f.add(l17);
+		f.add(l18);
+		f.add(l19);
+		f.add(l20);
+		f.add(l21);
+		f.add(l22);
+		f.add(l23);
+		f.add(l24);
+		f.add(l25);
+		f.add(l26);
+		
+		f.add(gl);
+		f.add(gtf);
+		f.add(rn);
+		f.add(rnf);
+		f.add(sl);
+		f.add(sf);
+		f.add(b);
+		
+		           f.setVisible(true);
+		           f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+	public void actionPerformed(ActionEvent ae)
+	{
+        float rpd,nbpd;
+        int day[]= {0,31,28,31,30,31,30,31,31,30,31,30,31};
+         int i;                                           
+                                                          d1=Integer.parseInt(tf3.getText()+tf4.getText());
+                                                          d2=Integer.parseInt(tf11.getText()+tf12.getText());
+                                                          m1=Integer.parseInt(tf5.getText()+tf6.getText());
+                                                          m2=Integer.parseInt(tf13.getText()+tf14.getText());
+                                                          y1=Integer.parseInt(tf7.getText()+tf8.getText()+tf9.getText()+tf10.getText());
+                                                          y2=Integer.parseInt(tf15.getText()+tf16.getText()+tf17.getText()+tf18.getText());
+                                                          
+        tr=Integer.parseInt(tf19.getText());
+		r=Float.parseFloat(tf21.getText());
+		gp=Float.parseFloat(gtf.getText());
+		sev=Integer.parseInt(sf.getText());
+        
+		//(WHEN YEAR AND MONTHs ARE SAME BUT THE DAYS ARE DIIFERENT:)
+		if(y1==y2 && m1==m2)
+	    {
+                       td=d2-d1;
+	    }
+		
+		//(WHEN YEAR IS SAME BUT THE MONTHS AND DAYS ARE DIFFERENT : )
+		else if (y1==y2 && m1<m2)
+		{
+			if(d1<day[m1])
+			{
+				td=td+(day[m1]-d1);
+				for(i=m1+1;i<m2;i++)
+				{
+				td=td+day[i];
+				}
+				td=td+d2;
+				}
+			}
+		
+		//(WHEN YEAR AND MONTH AND DAY ARE DIFFERENT :)
+		else if(y1!=y2 && y1<y2)
+	    {
+	    for(i=m1;i<=12;i++)
+	    {
+	    if(i==m1)
+	    {
+	    td=day[i]-d1;
+	    }    
+	    else
+	    {
+	    td=day[i];
+	    }
+	    }
+	    
+	    System.out.println("Breaking Days : " + td);
+	    for(i=y1+1;i<y2;i++)
+	    {
+	    td=td+365;
+	    }
+	    for(i=1;i<m2;i++)
+	    {
+	    td=td+day[i];
+	    }
+	    td=td+d2;
+	    }
+		
+		
+		if(ae.getActionCommand().equalsIgnoreCase("VIEW-BILL :"))	
+           {
+	                   rpd=r+sev;
+	                   g=(rpd*gp)/100;
+	                   nbpd=rpd+g;
+	                   gamt=g*td*tr;//
+	                   nb=nbpd*td*tr;
+	                   tf22.setText(Float.toString(gamt));
+	                   tf23.setText(Float.toString(nb));
+	                   tf24.setText(Integer.toString(td));
+	                   System.out.println("NET FAIR PER DAY : " + nbpd );
+	                   //System.out.println(" FAIR PER DAY without gst : " + );
+}
+		if(ae.getActionCommand().equalsIgnoreCase("VIEW-BILL :"))	
+        {
+	                   rpd=r+sev;
+	                   g=(rpd*gp)/100;
+	                   nbpd=rpd+g;
+	                   gamt=g*td*tr;//
+	                   nb=nbpd*td*tr;
+	                   tf22.setText(Float.toString(gamt));
+	                   tf23.setText(Float.toString(nb));
+	                   tf24.setText(Integer.toString(td));
+	                   System.out.println("NET FAIR PER DAY : " + nbpd );
+	                   //System.out.println(" FAIR PER DAY without gst : " + );
+}
+
+
+if(ae.getActionCommand().equalsIgnoreCase("PRINT-BILL :"))
+{
+print ob2=new print(tf1.getText(),tf2.getText(),tf3.getText(),tf4.getText(),tf5.getText(),tf6.getText(),tf7.getText(),tf8.getText(),tf9.getText(),tf10.getText(),tf11.getText(),tf12.getText(),tf13.getText(),tf14.getText(),tf15.getText(),tf16.getText(),tf17.getText(),tf18.getText(),tf19.getText(),tf20.getText(),tf22.getText(),tf23.getText(),tf21.getText(),tf24.getText(),rnf.getText());	
+}
+}
+    
+	
+public static void main(String args[])
+{
+bill ob=new bill();
+}
+}
+
+//To View The Bill Preview Page where all the details of the guest will be shown before printing the bill.
+class print implements ActionListener
+{
+JFrame f;
+//String nm="";//Name of the Guest
+JLabel rn,rn1, l, l1,l2, l3,l4, l5,l6, l7,l8, l9,l10, 	l11,l12, l13,l14, l15,l16, l17,l18, l19,l20, l21,l22, l23,l24, l25,l26, l27,l28, l29,l30, l31,l32, l33,l34, l35,l36 ,l37,l38, l39,l40, l41,l42;
+JButton b;
+print(String nm,String gi,String d1,String d2,String m1,String m2,String y1,String y2,String y3,String y4,String d3,String d4,String m3,String m4,String y5,String y6,String y7,String y8,String nr,String ng,String gst,String nb,String rate,String ts,String rnf)
+	{
+			                        
+f=new JFrame();
+f.setLayout(null);
+f.setTitle("PRINT-BILL");
+f.setBounds(500,0,500,2500);
+
+l=new JLabel(" GROUPS OF HOTEL");
+l.setBounds(120,10,200,30);
+
+rn=new JLabel("ROOM-NUMBER:");
+rn.setBounds(320,10,150,30);
+rn1=new JLabel(rnf);
+rn1.setBounds(420,10,80,30);
+
+l1=new JLabel("GUEST NAME         :");
+l1.setBounds(10,50,200,40);
+l2=new JLabel(nm);
+l2.setBounds(210,50,200,40);
+
+
+
+l3=new JLabel("ADHAR NUMBER       :");
+l3.setBounds(10,100,200,40);
+l4=new JLabel(gi);
+l4.setBounds(210,100,200,40);
+
+
+//Print of CHEECK-in-Date
+l5=new JLabel("CHEECK-IN-DATE     :");
+l5.setBounds(10,150,200,40);//
+l6=new JLabel(d1);
+l6.setBounds(210,150,50,40);
+l7=new JLabel(d2);
+l7.setBounds(220,150,50,40);
+
+l8=new JLabel("/");
+l8.setBounds(230,150,50,40);
+
+l9=new JLabel(m1);
+l9.setBounds(240,150,50,40);
+l10=new JLabel(m2);
+l10.setBounds(250,150,50,40);
+
+l11=new JLabel("/");
+l11.setBounds(260,150,50,40);
+
+l12=new JLabel(y1);
+l12.setBounds(270,150,50,40);
+l13=new JLabel(y2);
+l13.setBounds(280,150,50,40);
+l14=new JLabel(y3);
+l14.setBounds(290,150,50,40);
+l15=new JLabel(y4+".");
+l15.setBounds(300,150,50,40);
+
+
+l16=new JLabel("CHEECK-OUT-DATE   :");
+l16.setBounds(10,200,200,40);
+
+l17=new JLabel(d3);
+l17.setBounds(210,200,50,40);
+l18=new JLabel(d4);
+l18.setBounds(220,200,50,40);
+
+l19=new JLabel("/");
+l19.setBounds(230,200,50,40);
+
+
+l20=new JLabel(m3);
+l20.setBounds(240,200,50,40);
+l21=new JLabel(m4);
+l21.setBounds(250,200,50,40);
+
+l22=new JLabel("/");
+l22.setBounds(260,200,50,40);
+
+l23=new JLabel(y5);
+l23.setBounds(270,200,50,40);
+l24=new JLabel(y6);
+l24.setBounds(280,200,50,40);
+l25=new JLabel(y7);
+l25.setBounds(290,200,50,40);
+l26=new JLabel(y8+".");
+l26.setBounds(300,200,50,40);
+
+l27=new JLabel("NUMBER OF DAYS    :");
+l27.setBounds(10,250,200,40);
+l28=new JLabel(ts);
+l28.setBounds(210,250,100,40);
+
+l29=new JLabel("NUMBER OF GUEST   :");
+l29.setBounds(10,350,200,40);
+l30=new JLabel(ng);
+l30.setBounds(210,350,100,40);
+
+l31=new JLabel("NUMBER OF ROOMS   :");
+l31.setBounds(10,300,200,40);
+l32=new JLabel(nr);
+l32.setBounds(210,300,50,40);
+
+l33=new JLabel("RATE-PER-ROOM     :");
+l33.setBounds(10,400,200,40);
+l34=new JLabel("Rs-"+rate+".00/-");
+l34.setBounds(210,400,100,40);
+
+l35=new JLabel("GST AMOUNT          :");
+l35.setBounds(10,450,220,40);
+l36=new JLabel("Rs-"+gst+"0/-");
+l36.setBounds(210,450,100,40);
+
+l37=new JLabel("NET-BILL          :");
+l37.setBounds(10,500,200,40);
+l38=new JLabel("Rs-"+nb+"0/-");
+l38.setBounds(210,500,100,40);
+l39=new JLabel("(AMOUNT TO BE PAID)");
+l39.setBounds(350,500,200,40);
+l39.setVisible(true);
+
+l40=new JLabel("_____________");
+l40.setBounds(210,480,100,40);
+
+l41=new JLabel("_____________");
+l41.setBounds(210,510,100,40);
+
+
+
+l42=new JLabel("!!THANK YOU AND VISIT AGAIN!!");
+l42.setBounds(150,580,200,40);
+
+
+b=new JButton("PRINT-BILL");
+b.setBounds(150,630,100,40);
+//b.addActionListener(this);
+
+f.add(rn);
+f.add(rn1);
+f.add(l);
+f.add(l1);
+f.add(l2);
+f.add(l3);
+f.add(l4);
+//CHEECK-IN-DATE
+f.add(l5);
+f.add(l6);
+f.add(l7);
+f.add(l8);
+f.add(l9);
+f.add(l10);
+f.add(l11);
+f.add(l12);
+f.add(l13);
+f.add(l14);
+f.add(l15);
+//CHEECK-OUT-DATE
+f.add(l16);
+f.add(l17);
+f.add(l18);
+f.add(l19);
+f.add(l20);
+f.add(l21);
+f.add(l22);
+f.add(l23);
+f.add(l24);
+f.add(l25);
+f.add(l26);
+
+f.add(l27);
+f.add(l28);
+f.add(l29);
+f.add(l30);
+f.add(l31);
+f.add(l32);
+f.add(l33);
+f.add(l34);
+f.add(l35);
+f.add(l36);
+f.add(l37);
+f.add(l38);
+f.add(l39);
+f.add(l40);
+f.add(l41);
+f.add(l42);
+f.add(b);
+f.setVisible(true);
+f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+
+	public void actionPerformed(ActionEvent ae)
+{
+	
+}
+	public static void main(String args[])
+{
+	//view ob2=new view();
+}
+}
+
+
+class login implements ActionListener
+{
+	JFrame f;
+	JLabel l1,l2,l3,l4;
+	JTextField tf1,tf2;
+	JButton b1;
+	JPasswordField ps;
+	                                      String uid[]= {"AYUSH","def456","ghi789"};//USER-ID
+	                                      String upw[]= {"123abc","456def","789ghi"};//USER-PASSWORD
+	
+	
+	login()
+	{
+		f=new JFrame();
+		f.setLayout(null);
+		f.setTitle("WELLCOM TO HOTEL  LOGIN PAGE :");
+		f.setBounds(500,100,500,300);
+		
+		l1=new JLabel("USER-ID         :");
+		l1.setBounds(10,70,120,40);
+		tf1=new JTextField();
+		tf1.setBounds(120,80,100,30);
+	
+		l2=new JLabel("PASSWORD :");
+		l2.setBounds(10,120,100,40);
+		ps=new JPasswordField();
+		ps.setEchoChar('*');
+		ps.setBounds(120,120,100,30);
+		
+		b1=new JButton("LOGIN");
+		b1.setBounds(180,180,80,30);
+		b1.addActionListener(this);
+		
+		l3=new JLabel("INCORRECT USER-ID OR PASSWORD !!");
+		l3.setBounds(130,20,250,20);
+		l3.setVisible(false);
+		
+		f.add(l1);
+		f.add(tf1);
+		f.add(l2);
+		f.add(l3);
+		f.add(b1);
+		f.add(ps);
+		f.setVisible(true);
+		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+	
+	public void actionPerformed(ActionEvent ae)
+	{
+		int i=0,f=0;
+		if(ae.getActionCommand().equalsIgnoreCase("LOGIN"))
+		{
+			
+			String id="";
+			String pw =" ";
+			id=tf1.getText();
+			pw=ps.getText();
+			 
+			for(i=0;i<uid.length;i++)
+			{
+			if(id.equalsIgnoreCase(uid[i]) && pw.equalsIgnoreCase(upw[i]))
+			{
+			f=1;
+			break;
+			}
+			}
+		if(f==1)
+		{
+			System.out.println(id);
+			System.out.println(pw);
+			
+			list1 ob1=new list1(tf1.getText());
+		}
+		else
+		{
+			l3.setVisible(true);
+		}
+		}
+	    }
+		
+	
+public static void main(String args[])
+{
+	//login ob6=new login();
+}
+}
